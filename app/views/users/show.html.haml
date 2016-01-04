@@ -1,0 +1,9 @@
+- provide(:title, @user.name)
+.row
+  .col-md-6
+    %table.table
+      %tr
+        %td Name:
+        %td
+          = @user.name
+= link_to 'Edit profile', edit_user_registration_path
