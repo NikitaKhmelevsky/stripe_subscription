@@ -54,6 +54,8 @@ gem 'pg'
 gem 'rolify'
 gem 'simple_form'
 
+gem 'stripe'
+
 group :development do
   gem 'erb2haml'
   gem 'html2haml'
