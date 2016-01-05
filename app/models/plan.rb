@@ -12,6 +12,8 @@ class Plan < ActiveRecord::Base
 
   validates_uniqueness_of :stripe_plan_id
 
+  scope :by_price, -> { order(amount: :desc)}
+
   def create_stripe_plan
     Honeypack::PlanService.create_stripe_plan(self)
   end

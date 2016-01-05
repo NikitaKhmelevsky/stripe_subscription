@@ -17,3 +17,15 @@ p1 = Plan.where(name: 'Platinum').first_or_initialize do |p|
   p.stripe_plan_id = 'platinum'
 end
 p1.save!(:validate => false)
+p2 = Plan.where(name: 'Gold').first_or_initialize do |p|
+  p.amount = 1900
+  p.interval = 'month'
+  p.stripe_plan_id = 'gold'
+end
+p2.save!(:validate => false)
+p3 = Plan.where(name: 'Silver').first_or_initialize do |p|
+  p.amount = 900
+  p.interval = 'month'
+  p.stripe_plan_id = 'silver'
+end
+p3.save!(:validate => false)

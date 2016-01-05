@@ -1,0 +1,12 @@
+- provide(:title, 'Pricing page')
+
+%ul.thumbnails.koudoku-pricing-table
+  - @plans.each do |plan|
+    %li{ :class => 'span3 plan' }
+      .thumbnail
+        .caption
+          %h3= plan.name
+          %h4= plan.get_real_price
+          .call-to-action
+            - if @subscription.nil?
+              = link_to 'buy', new_subscription_path(plan: plan.id), class: 'btn btn-success btn-large'
