@@ -1,13 +1,7 @@
 StripeEvent.configure do |events|
-  events.subscribe 'charge.failed' do |event|
-    Honeypack::SubscriptionService.charge_failed(event)
-  end
-
-  events.subscribe 'invoice.payment_succeeded' do |event|
-    Honeypack::SubscriptionService.payment_succeeded(event)
-  end
-
-  events.subscribe 'customer.subscription.deleted' do |event|
-    Honeypack::SubscriptionService.payment_deleted(event)
-  end
+  Honeypack::StripeEventsHandler.new(events)
+  # events.subscribe 'plan.deleted' do |event|
+  #   byebug
+  #   plan = Plan.find_by_stripe_plan_id(event.data.object['id'])
+  # end
 end
