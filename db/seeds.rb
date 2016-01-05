@@ -10,3 +10,10 @@
 end
 admin = User.create(name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 admin.add_role :admin
+
+p1 = Plan.where(name: 'Platinum').first_or_initialize do |p|
+  p.amount = 2900
+  p.interval = 'month'
+  p.stripe_plan_id = 'platinum'
+end
+p1.save!(:validate => false)

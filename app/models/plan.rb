@@ -1,4 +1,5 @@
 class Plan < ActiveRecord::Base
+  include PriceConverter
 
   before_create :create_stripe_plan
 
@@ -12,7 +13,7 @@ class Plan < ActiveRecord::Base
   validates_uniqueness_of :stripe_plan_id
 
   def create_stripe_plan
-    Honeypack::PlanService.create_stripe_plan
+    Honeypack::PlanService.create_stripe_plan(self)
   end
 
 end

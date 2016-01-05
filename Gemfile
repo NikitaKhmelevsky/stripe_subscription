@@ -55,6 +55,7 @@ gem 'rolify'
 gem 'simple_form'
 
 gem 'stripe'
+gem 'stripe_event'
 
 group :development do
   gem 'erb2haml'

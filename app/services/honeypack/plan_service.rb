@@ -1,6 +1,6 @@
 module Honeypack
   class PlanService
-    def create_stripe_plan(plan)
+    def self.create_stripe_plan(plan)
       secret_key = Stripe.api_key
 
       begin
